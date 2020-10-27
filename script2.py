@@ -6,22 +6,22 @@ def summarize_contents(filename):
 	else:
 		type_file= "fasta"
 	record = list(SeqIO.parse(filename, type_file))
-	#Creacion de diccionario
+	#diccionario
 	d = {}
 	d['File:'] = listaOs[1]
 	d['Path:'] = listaOs[0]
 	d['Num_records:'] = len(record)
-	#Diccionario con listas
+	#diccionario con listas
 	d['Names:'] = []
 	d['IDs:'] = []
 	d['Descriptions'] = []
-	#Registro de records
+	#registros
 	for seq_rcd in SeqIO.parse(filename,type_file):
 		d['Names:'].append(seq_rcd.name)
 		d['IDs:'].append(seq_rcd.id)
 		d['Descriptions'].append(seq_rcd.description)
 	return d
-#Imprimir la funcion
+#imp.funcion
 if _name_ == "_main_":
 	resultados = summarize_contents(filename)
 	print(resultados)
